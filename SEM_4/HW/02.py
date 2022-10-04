@@ -6,6 +6,8 @@ def fact(n):
         result = [-1]
     elif n==0:
         result = 0
+    elif n==1:
+         result=1
     else:
         result=[]
     while i*i <= n:
