@@ -2,7 +2,7 @@
 
 from decimal import Decimal
 n = Decimal(input('введите число: '))
-d = str(input('введите точность округления в формате 0.0001: '))
+d = input('введите точность округления в формате 0.0001: ')
 print(n.quantize(Decimal(d)))
 
 
