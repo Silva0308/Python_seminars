@@ -6,7 +6,7 @@ def sqr_root(a,b,c,):
     d = b**2-4*a*c
     if a ==0:
        return print("error")
-    with open("sqr_root.txt","a", encoding="utf-8") as my_f:
+    with open("sqr_root.txt","a", encoding="utf-8") as my_f:    
         my_f.write(f"{a}x² + ({b})x +({c}) = 0\n")
         if d < 0:
             my_f.write("Уравнение не имеет корней\n")
