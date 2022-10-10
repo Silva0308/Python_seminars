@@ -20,16 +20,22 @@ def deco(coded_text: str):
     return decoded_text
 
 
-path1 = Path("Python_seminars", "SEM_5", "origin.txt")
-with open(path1, "r") as my_f1:
-    my_text = ''.join(map(str, my_f1.readlines()))
-coded_str = code(my_text)
-path2 = Path("Python_seminars", "SEM_5", "coded.txt")
-with open(path2, "w", encoding="utf-8") as my_f2:
-    my_f2.write(coded_str)
-with open(path2, "r") as my_f2:
-    coded_text = ''.join(map(str, my_f2.readlines()))
-decoded_text = deco(coded_text)
-path3 = Path("Python_seminars", "SEM_5", "decoded.txt")
-with open(path3, "w", encoding="utf-8") as my_f3:
-    my_f3.write(decoded_text)
+path1 = Path("Python_seminars", "SEM_5", str(
+    input("Введите название файла для кодирования: ")))
+if path1.exists == False:
+    print("Вы ошиблись, такого файла не существует")
+else:
+    with open(path1, "r") as my_f1:
+        my_text = ''.join(map(str, my_f1.readlines()))
+    coded_str = code(my_text)
+    path2 = Path("Python_seminars", "SEM_5", str(
+        input("Введите название файла для записи результата кодирования: ")))
+    with open(path2, "w", encoding="utf-8") as my_f2:
+        my_f2.write(coded_str)
+    with open(path2, "r") as my_f2:
+        coded_text = ''.join(map(str, my_f2.readlines()))
+    decoded_text = deco(coded_text)
+    path3 = Path("Python_seminars", "SEM_5", str(
+        input("Введите название файла для записи декодированной информации: ")))
+    with open(path3, "w", encoding="utf-8") as my_f3:
+        my_f3.write(decoded_text)
