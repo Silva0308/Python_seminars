@@ -1,3 +1,7 @@
+# 2. Дан список чисел. Создайте список, в который попадают числа,
+#    описываемые возрастающую последовательность.
+#    Порядок элементов менять нельзя.
+
 from random import choices
 
 
@@ -8,17 +12,18 @@ def new_list(n):
 
 
 def range_num(m_list):
-    ranged_list=[]
+    ranged_list = []
     for i in range(len(m_list)):
-        f=m_list[i]
-        t_list=[f]
+        f = m_list[i]
+        t_list = [f]
         for x in range(i+1, len(m_list)):
-            if m_list[x] >f:
-                f=m_list[x]
+            if m_list[x] > f:
+                f = m_list[x]
                 t_list.append(f)
-        if len(t_list)>1:
-            ranged_list.append(t_list)       
+        if len(t_list) > 1:
+            ranged_list.append(t_list)
     return ranged_list
+
 
 n = int(input())
 my_list = (new_list(n))
