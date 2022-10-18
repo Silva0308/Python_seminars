@@ -9,39 +9,35 @@ def last_names():
             return last_names
         last_names.append(last_name)
 
-def get_name():
+def get_name(last_names):
     names = []
-    while True:
+    for i in range(len(last_names)):
         name = input("Введите имя: ")
-        if name == 'end':
-            return names
         names.append(name)
 
-def telephone():
+def telephone(last_names):
     tels = []
-    while True:
+    for i in range(len(last_names)):
         tel = input("Введите номер телефона: ")
-        if tel == 'end':
-            return tels
         tels.append(tel)
 
-def info():
+def info(last_names):
     des = []
-    while True:
+    for i in range(len(last_names)):
         info = input("Введите комментарий: ")
-        if info == 'end':
-            return des
         des.append(info)
 
 
 def dic(last_names, names, tels, info):
     pb={}
-    for i in range(1, len(last_names)+1):
-        key=i
+    for i in range(len(last_names)):
+        key=i+1
         pb[key]=[]
-        pb[key].append(last_names[i-1])
-        pb[key].append(names[i-1])
-        pb[key].append(tels[i-1])
-        pb[key].append(info[i-1])
+        pb[key].append(last_names[i])
+        pb[key].append(names[i])
+        pb[key].append(tels[i])
+        pb[key].append(info[i])
     return pb
 
+
+print(dic(last_names(), get_name(last_names()), telephone(last_names()), info(last_names())))
