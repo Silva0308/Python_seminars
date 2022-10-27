@@ -1,5 +1,5 @@
 # # 3. Создайте программу для игры в "Крестики-нолики". Поле 3x3. Игрок - игрок, без бота.
-
+from random import randint
 board = list(range(1, 10))
 wins = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (1, 4, 7),
         (2, 5, 8), (3, 6, 9), (1, 5, 9), (3, 5, 7)]
@@ -26,6 +26,14 @@ def take_input(player):
         board[value - 1] = player
         break
 
+def put_bot(player):
+    while True:
+        value = randint(1,9)
+        if str(board[value - 1]) in '❌⭕':
+            continue
+        print(f"Bot поставил ⭕ на клетку {value}")
+        board[value - 1] = player
+        break
 
 def check():
     for each in wins:
@@ -42,7 +50,7 @@ def game():
         if counter % 2 == 0:
             take_input('❌')
         else:
-            take_input('⭕')
+            put_bot ('⭕')
         if counter > 3:
             winner = check()
             if winner:
